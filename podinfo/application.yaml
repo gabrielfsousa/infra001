@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: podinfo
+  namespace: argocd  
 spec:
   generators:
   - list:
@@ -14,7 +15,7 @@ spec:
     metadata:
       name: '{{cluster}}-podinfo'
     spec:
-      project: podinfo
+      project: default 
       source:
         repoURL: https://github.com/gabrielfsousa/infra001.git 
         targetRevision: HEAD
