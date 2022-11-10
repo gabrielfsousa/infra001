@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: dev
+        url: https://kubernetes.default.svc 
+      - cluster: prod
+        url: https://kubernetes.default.svc 
+  template:
+    metadata:
+      name: '{{cluster}}-podinfo'
+    spec:
+      project: podinfo
+      source:
+        repoURL: https://github.com/gabrielfsousa/infra001.git 
+        targetRevision: HEAD
+        path: podinfo/{{cluster}}
+      destination:
+        server: '{{url}}'
+        namespace: '{{cluster}}' 
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
