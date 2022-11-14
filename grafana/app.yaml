@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: grafana
+  namespace: argocd  
+spec:
+  generators:
+  - git:
+    repoURL: https://github.com/gabrielfsousa/infra001.git 
+      revision: HEAD
+      files:
+        - path: "grafana/*/*-app.yaml"
+  template:
+    metadata:
+      name: '{{cluster}}-grafana'
+    spec:
+      project: default
+      source:
+        helm:
+          valueFiles:
+          - values.yaml
+          values: |-
+            {{values}}
+        repoURL: https://github.com/grafana/helm-charts 
+        targetRevision: HEAD
+        path: "charts/grafana"
+      destination:
+        server: '{{url}}'
+        namespace: {{cluster}}  

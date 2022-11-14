@@ -1,0 +1,4 @@
+cluster: "dev"
+url: "https://kubernetes.default.svc"
+values: |
+  replicaCount: 2 
