@@ -21,7 +21,7 @@ spec:
           - values.yaml
           values: |-
             {{values}}
-        repoURL: https://github.com/grafana/helm-charts 
+        repoURL: https://github.com/grafana/helm-charts.git 
         targetRevision: HEAD
         path: "charts/grafana"
       destination:
