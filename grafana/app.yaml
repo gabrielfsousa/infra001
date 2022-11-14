@@ -6,10 +6,10 @@ metadata:
 spec:
   generators:
   - git:
-    repoURL: https://github.com/gabrielfsousa/infra001.git 
+      repoURL: https://github.com/gabrielfsousa/infra001.git 
       revision: HEAD
       files:
-        - path: "grafana/*/*-app.yaml"
+        - path: "grafana/*/*-cluster.yaml"
   template:
     metadata:
       name: '{{cluster}}-grafana'
@@ -26,4 +26,4 @@ spec:
         path: "charts/grafana"
       destination:
         server: '{{url}}'
-        namespace: {{cluster}}  
+        namespace: '{{cluster}}'  
