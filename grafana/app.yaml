@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/gabrielfsousa/infra001.git 
       revision: HEAD
       files:
-        - path: "grafana/*/*.yaml"
+        - path: "grafana/*/cluster.yaml"
   template:
     metadata:
       name: '{{cluster}}-grafana'
@@ -18,9 +18,7 @@ spec:
       source:
         helm:
           valueFiles:
-          - values.yaml
-          values: |-
-            {{values}}
+          - {{cluster}}/v.yaml
         repoURL: https://github.com/grafana/helm-charts.git 
         targetRevision: HEAD
         path: "charts/grafana"
