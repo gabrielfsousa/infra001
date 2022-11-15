@@ -1,2 +1,4 @@
 cluster: "dev"
 url: "https://kubernetes.default.svc"
+values: |
+  replicas: 1
