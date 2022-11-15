@@ -1,0 +1,8 @@
+apiVersion: v2
+name: kubeview 
+description: A Helm chart for Kubernetes
+dependencies:
+- name: kubeview 
+  version: 0.1.31
+  repository: https://benc-uk.github.io/kubeview/charts 
+
