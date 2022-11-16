@@ -5,7 +5,8 @@ global:
     pullPolicy: "IfNotPresent"
   service:
     port: 80
-    type: "ClusterIP"
+    type: "NodePort"
+    nodePort: 30011  
 weave-scope-frontend:
   enabled: true
 weave-scope-agent:
