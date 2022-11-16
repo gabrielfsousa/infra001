@@ -1,17 +1,12 @@
 limitNamespace: false
-
 replicaCount: 1
-
 image:
   repository: ghcr.io/benc-uk/kubeview
   tag: 0.1.31
   pullPolicy: Always
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
-# If you want to expose the kubeview service using an ingress
 ingress:
   enabled: false
   annotations: {}
@@ -19,16 +14,9 @@ ingress:
     - host: chart-example.local
   tls: []
   className: ""
-
-# If you want to expose the kubeview service directly
 loadBalancer:
   IP: ""
   enabled: true
-
-# Note.
-# If both ingress and loadbalancer are disabled, a ClusterIP service will be created
-
-# Mostly never need to change these
 resources:
   limits:
     cpu: 100m
@@ -36,10 +24,6 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
-
