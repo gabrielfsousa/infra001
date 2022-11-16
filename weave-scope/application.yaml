@@ -22,7 +22,7 @@ spec:
         path: weave-scope/{{cluster}}
       destination:
         server: '{{url}}'
-
+        namespace: '{{cluster}}'
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
