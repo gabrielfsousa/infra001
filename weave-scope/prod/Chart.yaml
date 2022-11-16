@@ -4,5 +4,5 @@ version: 0.1.0
 dependencies:
 - name: weave-scope 
   version: 1.0.0
-  repository: https://cloudnativeapp.github.io/charts/curated/ 
+  repository: https://dasmeta.github.io/helm/ 
 
