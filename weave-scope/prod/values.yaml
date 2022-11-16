@@ -1,0 +1,20 @@
+global:
+  image:
+    repository: weaveworks/scope
+    tag: 1.10.1
+    pullPolicy: "IfNotPresent"
+  service:
+    port: 80
+    type: "ClusterIP"
+weave-scope-frontend:
+  enabled: true
+weave-scope-agent:
+  enabled: true
+  dockerBridge: "docker0"
+  scopeFrontendAddr: ""
+  probeToken: ""
+  rbac:
+    create: true
+  readOnly: false
+  serviceAccount:
+    create: true

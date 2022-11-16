@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: weave-scope 
+  namespace: argocd  
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: dev
+        url: https://kubernetes.default.svc 
+      - cluster: prod
+        url: https://kubernetes.default.svc 
+  template:
+    metadata:
+      name: '{{cluster}}-weave-scope'
+    spec:
+      project: default 
+      source:
+        repoURL: https://github.com/gabrielfsousa/infra001.git 
+        targetRevision: HEAD
+        path: weave-scope/{{cluster}}
+      destination:
+        server: '{{url}}'
+
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+
+        automated:
+          selfHeal: true
+          prune: true
