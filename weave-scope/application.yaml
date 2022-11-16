@@ -17,6 +17,9 @@ spec:
     spec:
       project: default 
       source:
+        helm:
+          valueFiles:
+          - values.yaml
         repoURL: https://github.com/gabrielfsousa/infra001.git 
         targetRevision: HEAD
         path: weave-scope/{{cluster}}
