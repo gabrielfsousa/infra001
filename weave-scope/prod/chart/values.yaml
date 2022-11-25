@@ -9,9 +9,9 @@ global:
 weave-scope-frontend:
   enabled: true
 ingress:
-  enabled: enabled
+  enabled: true 
   name: ingress-weave-scope
-  host: gabriel
+  host: gabriel.gabriel.com
   path: "/weavescope"
   className: ""
   extraPaths: ""
