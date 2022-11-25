@@ -11,7 +11,7 @@ weave-scope-frontend:
   ingress:
     enabled: enabled
     name: ingress-weave-scope
-    host: dk8snl01.az.hugoboss.com
+    host: gabriel
     path: "/weavescope"
     className: ""
     extraPaths: ""
