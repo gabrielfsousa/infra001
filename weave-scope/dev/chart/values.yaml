@@ -8,14 +8,14 @@ global:
     type: "ClusterIP"
 weave-scope-frontend:
   enabled: true
-  ingress:
-    enabled: enabled
-    name: ingress-weave-scope
-    host: gabriel
-    path: "/weavescope"
-    className: ""
-    extraPaths: ""
-    annotations:
+ingress:
+  enabled: true 
+  name: ingress-weave-scope
+  host: gabriel
+  path: "/weavescope"
+  className: ""
+  extraPaths: ""
+  annotations:
 weave-scope-agent:
   enabled: true
   dockerBridge: "docker0"
