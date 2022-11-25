@@ -16,14 +16,16 @@ spec:
     spec:
       project: default
       source:
-        helm:
-          valueFiles:
-          - values.yaml
-          values: |-
-            {{values}}
+        #helm:
+        #  valueFiles:
+        #  - values.yaml
+        #  values: |-
+        #    {{values}}
         repoURL: https://github.com/grafana/helm-charts.git 
         targetRevision: HEAD
         path: "charts/grafana"
+        plugin:
+          name: argocd-lovely-plugin
       destination:
         server: '{{url}}'
         namespace: '{{cluster}}'  
